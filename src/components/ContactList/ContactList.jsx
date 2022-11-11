@@ -13,14 +13,13 @@ const ContactList = () => {
   const contacts = useSelector(getContacts);
 
   const filterContact = () => {
-    const filterName = filter.trim().toLowerCase();
+    const filterName = filter?.toLowerCase();
     return contacts.filter(({ name }) =>
       name.toLowerCase().includes(filterName)
     );
   };
 
   const filterContactList = filterContact();
-
   return (
     <ul className={s.list}>
       {filterContactList.map(({ id, name, number }) => (
